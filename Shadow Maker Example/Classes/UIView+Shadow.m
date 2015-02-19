@@ -46,6 +46,7 @@
 - (UIView *) createShadowViewWithRadius:(float)radius Color:(UIColor *)color Directions:(NSArray *)directions
 {
     UIView *shadowView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height)];
+    [shadowView.layer setCornerRadius:radius];
     shadowView.backgroundColor = [UIColor clearColor];
     
     // Ignore duplicate direction
@@ -80,6 +81,7 @@
                 [shadow setEndPoint:CGPointMake(0.0, 0.5)];
             }
             
+            [shadow setCornerRadius:radius];
             shadow.colors = [NSArray arrayWithObjects:(id)[color CGColor], (id)[[UIColor clearColor] CGColor], nil];
             [shadowView.layer insertSublayer:shadow atIndex:0];
         }
